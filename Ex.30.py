@@ -9,13 +9,13 @@ def exibir_menu():
     print("3 - Sair")
     print("------------------------")
 
-def salvar_cadastros (cadastros):
-    with open (arquivo_cadastros, "w", encoding="utf-8") as arquivo:
+def salvar_cadastros(cadastros):
+    with open (ARQUIVO_CADASTROS, "w", encoding="utf-8") as arquivo:
         json.dump(cadastros, arquivo, indent=4, ensure_ascii=False)
 
 def carregar_cadastros():
     try:
-       with open (arquivo_cadastro, "r", enconding="utf-8") as arquivo:
+       with open (arquivo_cadastros, "r", encoding="utf-8") as arquivo:
           return json.load(arquivo)
     except (FileNotFoundError, json.JSONDecodeError):
       return []     
@@ -27,10 +27,11 @@ def cadastrar_pessoa(cadastros):
     curso = input("Curso:")
 
     cadastros.append({"Nome": nome, "Idade": idade, "Turma": turma, "Curso": curso})
+    salvar_cadastros(cadastros)
     print("Cadastro realizado com sucesso!")
 
 def ver_cadastros(cadastros):
-    if not cadastros(cadastros)
+    if not cadastros
        print ("\nNenhum cadastro realizado.")
     else:
        print("\n====== LISTA DE CADASTROS =====")
@@ -47,11 +48,11 @@ def main():
        if opcao == "1":
           cadastrar_pessoa(cadastros)
        elif opcao == "2":
-          cadastrar_pessoa(cadastros)
-        elif opcao == "3":
+          ver_cadastros(cadastros)
+       elif opcao == "3":
             print("Obrigado por utilizar o sistema de cadastros!")
             break
-        else:
+       else:
             print("Opção inválida! Tente novamente.")
 
 if __name__ == "__main__":
