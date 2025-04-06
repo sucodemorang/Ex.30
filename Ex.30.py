@@ -35,7 +35,7 @@ def ver_cadastros(cadastros):
     else:
        print("\n====== LISTA DE CADASTROS =====")
        for i, pessoa in enumerate(cadastros, 1):
-         print(f"{i}. Nome: {pessoa['Nome']}, Idade:{pessoa['Idade']}, Turma: {pessoa['Turma']}, Curso: {pessoa[]}")
+         print(f"{i}. Nome: {pessoa['Nome']}, Idade:{pessoa['Idade']}, Turma: {pessoa['Turma']}, Curso: {pessoa['Curso']}")
 
     input("\nPressione Enter para voltar ao menu...")
 
